@@ -1,0 +1,24 @@
+
+modLoader = "javafml"
+loaderVersion = "[43,)"
+license = "${license}"
+[[mods]]
+modId = "${mod_id}"
+version = "${mod_version}"
+displayName = "${mod_name}"
+logoFile = "DT.png"
+credits = "спасибо в помощи: HollowHorizon и _BENDY659_"
+authors = "dan_bat"
+description = '''API с диалоговыми окнами, для упрощения создания интерактива :>'''
+[[dependencies.${mod_id}]]
+modId = "forge"
+mandatory = true
+versionRange = "[43,)"
+ordering = "NONE"
+side = "BOTH"
+[[dependencies.${mod_id}]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[${mc_version},)"
+ordering = "NONE"
+side = "BOTH"
