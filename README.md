@@ -27,7 +27,7 @@ repositories {
 }
 
 dependencies {
-    implementation(":lololowkaui:0.4.0a")
+    implementation(":lololowkaui:0.0.0")
 }
 ```
 
@@ -42,7 +42,7 @@ repositories {
 }
 
 dependencies {
-    implementation ':lololowkaui:0.4.0a'
+    implementation ':lololowkaui:0.0.0'
 }
 ```
 
