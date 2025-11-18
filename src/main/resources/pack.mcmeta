@@ -1,6 +1,6 @@
 {
-  "pack": {
-    "description": "API с диалоговыми окнами, для упрощения создания интерактива :>",
-    "pack_format": 9
-  }
+    "pack": {
+        "description": "${mod_name}",
+        "pack_format": 8
+    }
 }

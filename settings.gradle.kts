@@ -1,4 +1,3 @@
-import dev.kikugie.stonecutter.StonecutterSettings
 
 pluginManagement {
     repositories {
@@ -6,9 +5,11 @@ pluginManagement {
         gradlePluginPortal()
         maven("https://plugins.gradle.org/m2/")
         maven("https://maven.parchmentmc.org")
+        maven("https://maven.fabricmc.net/")
         maven("https://repo.spongepowered.org/repository/maven-public/")
-        maven("https://maven.minecraftforge.net")
+        maven("https://maven.neoforged.net/releases")
         maven("https://maven.architectury.dev")
+        maven("https://maven.minecraftforge.net")
         maven("https://maven.kikugie.dev/snapshots")
     }
 
@@ -20,21 +21,22 @@ pluginManagement {
 }
 
 plugins {
-    id("dev.kikugie.stonecutter") version "0.5-alpha.4"
+    id("dev.kikugie.stonecutter") version "0.7.10"
     id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
 }
 
-extensions.configure<StonecutterSettings> {
+stonecutter {
+
     kotlinController = true
     centralScript = "build.gradle.kts"
     shared {
-        fun mc(version: String, vararg loaders: String) {
-            for (it in loaders) vers("$version-$it", version)
-        }
-
-        mc("1.19.2", "forge")
+        rootProject.projectDir.resolve("versions")
+            .listFiles()
+            ?.filter { !it.isFile }
+            ?.forEach { version(it.name) }
     }
     create(rootProject)
 }
 
-rootProject.name = "MainScreen"
+val modName: String by settings
+rootProject.name = modName
